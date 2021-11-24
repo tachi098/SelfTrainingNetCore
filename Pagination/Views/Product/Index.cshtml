@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Product>
+@{Layout = "~/Views/Shared/_Layout.cshtml";}
+<div class="row">
+    <div class="col-md-8">
+        <h2>Pagiantion Product</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Category</td>
+                        <td>@item.Price</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pagination">
+                @{
+                    int numberPage = ViewBag.numberPage;
+                    int pageCurrent = ViewBag.pageCurrent;
+                    int offset = 2;//number display page
+
+
+                    //config FirstLink
+                    if (pageCurrent > 1)
+                    {
+                        int prevPage = pageCurrent - 1;
+                        var PrevLink = new Dictionary<string, string> { { "page", prevPage.ToString() } };
+                        <li class="page-item"><a class="page-link" asp-controller="Product" asp-action="Index" asp-all-route-data="PrevLink">Previous</a></li>
+                    }
+
+                    int from = pageCurrent - offset;
+                    int to = pageCurrent + offset;
+                    if (from <= 0)
+                    {
+                        from = 1;
+                        to = offset * 2;
+                    }
+
+
+                    if (to > numberPage)
+                    {
+                        to = numberPage;
+                    }
+
+                    int i;
+                    for (i = from; i <= to; i++)
+                    {
+                        var parms = new Dictionary<string, string>
+                                    {
+                        { "page",i.ToString()}
+                    };
+                        if (pageCurrent == i)
+                        {
+                            <li class="active page-item"><a class="page-link" asp-controller="Product" asp-action="Index" asp-all-route-data="parms">@i</a></li>
+                        }
+                        else
+                        {
+                            <li class="page-item"><a class="page-link" asp-controller="Product" asp-action="Index" asp-all-route-data="parms">@i</a></li>
+                        }
+
+                    }
+
+                    if (pageCurrent < numberPage - (to / 2))
+                    {
+                        <li class="page-item"><a class="page-link">...</a></li>
+                        var LastLink = new Dictionary<string, string> { { "page", numberPage.ToString() } };
+                        <li class="page-item"><a class="page-link" asp-controller="Product" asp-action="Index" asp-all-route-data="LastLink">Last</a></li>
+                    }
+
+                    if (pageCurrent < numberPage)
+                    {
+                        int nextPage = pageCurrent + 1;
+                        var NextLink = new Dictionary<string, string> { { "page", nextPage.ToString() } };
+                        <li class="page-item"><a class="page-link" asp-controller="Product" asp-action="Index" asp-all-route-data="NextLink">Next</a></li>
+                    }
+                }
+            </ul>
+        </nav>
+    </div>
+</div>

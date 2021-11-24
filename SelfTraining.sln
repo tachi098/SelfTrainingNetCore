@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement", "EmployeeManagement\EmployeeManagement.csproj", "{1D14A2E5-5584-44BD-9604-17308C050096}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoSignalr", "DemoSignalr\DemoSignalr.csproj", "{DEAA3F5B-FD6C-45E0-B475-3A50901A5877}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoSignalr", "DemoSignalr\DemoSignalr.csproj", "{DEAA3F5B-FD6C-45E0-B475-3A50901A5877}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pagination", "Pagination\Pagination.csproj", "{1152A7B9-A993-4A86-96AD-9B4B9BBC3CAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DEAA3F5B-FD6C-45E0-B475-3A50901A5877}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEAA3F5B-FD6C-45E0-B475-3A50901A5877}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEAA3F5B-FD6C-45E0-B475-3A50901A5877}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1152A7B9-A993-4A86-96AD-9B4B9BBC3CAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1152A7B9-A993-4A86-96AD-9B4B9BBC3CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1152A7B9-A993-4A86-96AD-9B4B9BBC3CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1152A7B9-A993-4A86-96AD-9B4B9BBC3CAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
